@@ -14,7 +14,7 @@ app.use(express.json());
  
  // Routes
 app.get('', (req, res) => {
-    res.send('Welcome to Makeup munch app.');
+    res.send('Welcome to BlogSwipe app.');
 }); 
 
 

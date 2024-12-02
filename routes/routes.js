@@ -4,6 +4,7 @@ const { updateBlogPost } = require('../controller/blog/updateBlogPost');
 const { createBlogPost } = require('../controller/blog/createBlogPost');
  const { deleteBlogPost } = require('../controller/blog/deteteBlogPost');
  const { getAllBlogs  } = require('../controller/blog/getBlogPost');
+const { login } = require('../controller/loginController');
 
  
 const upload = multer({ storage: multer.memoryStorage() });
@@ -22,4 +23,6 @@ router.post('/updateBlogPost',    updateBlogPost);
 router.post('/deleteBlogPost',    deleteBlogPost);
 
 router.get('/getAllBlogs',    getAllBlogs );
+router.post('/adminlogin',    login );
+
 module.exports = router; 

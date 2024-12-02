@@ -1,16 +1,29 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./utils/db');
+const cors = require('cors');
    
   
 const authRoutes = require('./routes/routes');
   
-// connect to database
+// connect to database 
 dotenv.config();
 connectDB();
 
 const app = express();
 app.use(express.json());
+
+
+ 
+
+// CORS configuration 
+app.use(cors({
+    origin:[
+'http://localhost:3000',
+    ],
+    methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
+    credentials: true,
+}));
  
  // Routes
 app.get('', (req, res) => {

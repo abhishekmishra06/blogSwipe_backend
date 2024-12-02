@@ -19,7 +19,7 @@ const createBlogPost = async (req, res) => {
   }
   if (!category) {
     return sendGeneralResponse(res, false, "Category is required", 400);
-  }
+  } 
 
   if (!req.file) {
     return sendGeneralResponse(res, false, "blog image is required", 400);

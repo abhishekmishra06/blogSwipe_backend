@@ -31,7 +31,7 @@ app.get('', (req, res) => {
 
    
 app.use('', authRoutes);
- 
+
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

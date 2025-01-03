@@ -28,7 +28,7 @@ app.get('', (req, res) => {
     res.send('Welcome to BlogSwipe app.');
 }); 
 
-
+ 
    
 app.use('', authRoutes);
 

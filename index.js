@@ -18,7 +18,7 @@ app.use(express.json());
 
 // CORS configuration 
 app.use(cors({
-    origin:[ '*' , 'https://blogswipe-shivank63s-projects.vercel.app/'],
+    origin:[ '*' , 'https://blogswipe-shivank63s-projects.vercel.app'],
     methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
     credentials: true,
 }));

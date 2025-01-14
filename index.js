@@ -23,7 +23,7 @@ app.use(cors({
     credentials: true,
 }));
  
- // Routes
+ // Routes.
 app.get('', (req, res) => {
     res.send('Welcome to BlogSwipe app.');
 }); 

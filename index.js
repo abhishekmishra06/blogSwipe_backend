@@ -17,12 +17,32 @@ app.use(express.json());
  
 
 // CORS configuration 
-app.use(cors({
-    origin:[ '*' , 'https://blogswipe-shivank63s-projects.vercel.app'],
-    methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
-    credentials: true,
-}));
- 
+// app.use(cors({
+//     origin:[ '*' , 'https://blogswipe-shivank63s-projects.vercel.app'],
+//     methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
+//     credentials: true,
+// }));
+const allowedOrigins = [
+    '*', // If you don't need credentials.
+    'https://blogswipe-shivank63s-projects.vercel.app',
+  ];
+  
+  app.use(cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps or curl)
+      if (!origin) return callback(null, true);
+  
+      // Allow specific origins
+      if (allowedOrigins.includes('*') || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD'],
+    credentials: true, // Allow cookies and HTTP authentication
+  }));
+  
  // Routes.
 app.get('', (req, res) => {
     res.send('Welcome to BlogSwipe app.');
